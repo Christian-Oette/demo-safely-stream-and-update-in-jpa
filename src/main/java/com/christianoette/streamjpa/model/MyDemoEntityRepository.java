@@ -20,7 +20,7 @@ public interface MyDemoEntityRepository extends Repository<MyDemoEntiy, Long> {
      * With simple paging you might change the same value twice
      */
     @Query(value = "from MyDemoEntiy ent where ent.text like '%replaceMe%'")
-    Page<MyDemoEntiy> findWithUnsafePaging(Pageable pageRequest);
+    Page<MyDemoEntiy> findWithPaging(Pageable pageRequest);
 
 
     void save(MyDemoEntiy entity);

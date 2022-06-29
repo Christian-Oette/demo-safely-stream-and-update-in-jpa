@@ -19,5 +19,5 @@ public class MyDemoEntiy implements Identifiable{
 
     @Column
     @Getter
-    public String text = "replaceMe replaceMeNot";
+    public String text = "replaceMe";
 }

@@ -42,7 +42,7 @@ public class ApiController {
 
     @PostMapping(value = "/api/update-whole-table-with-offset")
     public void updateWholeTableWithOffset() {
-        updateService.updateAllEntriesWithOffset();
+        updateService.updateAllEntriesWithPageAndOffset();
     }
 
     @PostMapping(value = "/api/update-whole-table-with-paging-only")
