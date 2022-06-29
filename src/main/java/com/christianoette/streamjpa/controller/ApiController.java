@@ -40,14 +40,19 @@ public class ApiController {
         }
     }
 
+    @PostMapping(value = "/api/update-whole-table-with-paging-only")
+    public void updateWholeTableWithPaging() {
+        updateService.updateWholeTableWithPagingOnly();
+    }
+
     @PostMapping(value = "/api/update-whole-table-with-offset")
     public void updateWholeTableWithOffset() {
         updateService.updateAllEntriesWithPageAndOffset();
     }
 
-    @PostMapping(value = "/api/update-whole-table-with-paging-only")
-    public void updateWholeTableWithPaging() {
-        updateService.updateWholeTableWithPagingOnly();
+    @PostMapping(value = "/api/update-with-offset-in-multiple-transactions")
+    public void updateWithPageAndOffsetInMultipleTransactions() {
+        updateService.updateWithPageAndOffsetInMultipleTransactions();
     }
 
     @GetMapping(value = "/api/get-data")

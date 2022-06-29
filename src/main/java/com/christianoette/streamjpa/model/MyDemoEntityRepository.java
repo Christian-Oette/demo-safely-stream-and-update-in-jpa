@@ -17,6 +17,12 @@ public interface MyDemoEntityRepository extends Repository<MyDemoEntiy, Long> {
     Page<MyDemoEntiy> findAllByIdOffset(@Param(value = "idOffset") Long idOffset, Pageable pageRequest);
 
     /**
+     * With an offset you can guarantee to modify a record only once. Load only ids to process each item in a new transaction
+     */
+    @Query(value = "ent.id from MyDemoEntiy ent where ent.text like '%replaceMe%' and ent.id >:idOffset")
+    Page<Long> findIdsWithOffset(@Param(value = "idOffset") Long idOffset, Pageable pageRequest);
+
+    /**
      * With simple paging you might change the same value twice
      */
     @Query(value = "from MyDemoEntiy ent where ent.text like '%replaceMe%'")
@@ -27,4 +33,6 @@ public interface MyDemoEntityRepository extends Repository<MyDemoEntiy, Long> {
 
     @Query(value = "from MyDemoEntiy ent")
     List<MyDemoEntiy> findPaged(Pageable pageable);
+
+    MyDemoEntiy findById(Long id);
 }
